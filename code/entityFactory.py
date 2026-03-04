@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from pygame.examples.grid import WINDOW_WIDTH
+import random
+from code.Const import WIN_WIDTH, WINDOW_HEIGHT
+from code.background import Background
+from code.player import Player
+from code.enemy import Enemy
 
-from code.Const import WIN_WIDTH
-from code.background import Background # Importa a classe do arquivo correto
 
 class EntityFactory:
 
@@ -16,3 +18,11 @@ class EntityFactory:
                     list_bg.append(Background(name=f'Level1{i}', position=(0, 0)))
                     list_bg.append(Background(name=f'Level1{i}', position=(WIN_WIDTH, 0)))
                 return list_bg
+            case 'Player1':
+                return Player('Player1', (10, WINDOW_HEIGHT / 2 - 30))
+            case'Player2':
+                return Player('Player2', (10, WINDOW_HEIGHT / 2 + 30))
+            case 'Enemy1':
+                return Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(40, WINDOW_HEIGHT - 40)))
+            case 'Enemy2':
+                return Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(40, WINDOW_HEIGHT - 40)))
