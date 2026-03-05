@@ -17,8 +17,21 @@ ENTITY_SPEED =  {
     'Enemy1' : 2,
     'Enemy2' : 1,
 
+}
+
+ENTITY_HEALTH = {
+    'Level10' : 999,
+    'Level11' : 999,
+    'Level12' : 999,
+    'Level13' : 999,
+    'Player1' : 300,
+    'Player2' : 300,
+    'Enemy1' : 50,
+    'Enemy2' : 60,
 
 }
+
+
 
 
 #M
