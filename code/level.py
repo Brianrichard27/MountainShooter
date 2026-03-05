@@ -11,7 +11,8 @@ from code.Const import COLOR_WHITE, WINDOW_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPA
 from code.EntityMediator import EntityMediator
 from code.entity import Entity
 from code.entityFactory import EntityFactory
-
+from code.player import Player
+from code.enemy import Enemy
 
 class Level:
     def __init__(self, window, name, game_mode):
@@ -32,11 +33,18 @@ class Level:
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
 
+        # No arquivo Level.py
         while True:
             clock.tick(60)
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+
+                # Verifica se é Player ou Enemy para atirar
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)  # O tiro entra na lista aqui
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
