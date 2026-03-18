@@ -4,7 +4,8 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, C_ORANGE, MENU_OPTION, C_YELLOW, C_WHITE
+
+from code.Const import WIN_WIDTH, C_ORANGE, C_WHITE, C_YELLOW, MENU_OPTION, WINDOW_HEIGHT
 
 
 class Menu:
@@ -18,16 +19,16 @@ class Menu:
         pygame.mixer_music.load('asset/Menu.mp3')
         pygame.mixer_music.play(-1)
         while True:
-            # DRAW IMAGES
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(text_size=50, text= "Mountain", text_color= (C_ORANGE), text_center_pos= ((WIN_WIDTH / 2), 70))
-            self.menu_text(text_size=50, text="Shooter", text_color=(C_ORANGE), text_center_pos=((WIN_WIDTH / 2), 120))
-
+            self.menu_text(50, "Mountain", C_ORANGE, ((WIN_WIDTH / 2), 70))
+            self.menu_text(50, "Shooter", C_ORANGE, ((WIN_WIDTH / 2), 120))
+            self.menu_text(15, "CONTROLES PARA MOVER: SETAS ou W,A,S,D | CTRL = ATIRAR", C_WHITE, (WIN_WIDTH / 2, 160))
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], C_YELLOW, text_center_pos=((WIN_WIDTH / 2), 200 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 30 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], C_WHITE, text_center_pos=((WIN_WIDTH / 2), 200 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 30 * i))
+
             pygame.display.flip()
 
             # Check for all events
