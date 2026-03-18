@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
+
 import pygame
 
 from code.Score import Score
@@ -43,7 +45,8 @@ class Game:
                  pygame.quit()  # Close window
                  quit() # end pygame
              else:
-                 pass
+                 pygame.quit()
+                 sys.exit()
 
 
 

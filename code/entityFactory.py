@@ -39,3 +39,4 @@ class EntityFactory:
                 return PlayerShot(name='Player1Shot', position=position)
             case 'Player2Shot':
                 return PlayerShot(name='Player2Shot', position=position)
+         return None

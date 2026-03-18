@@ -37,6 +37,7 @@ class Level:
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(f'asset/{self.name}.mp3')
+        pygame.mixer_music.set_volume(0.2)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
 
@@ -84,7 +85,7 @@ class Level:
 
 
 
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', C_WHITE, (10, 5))
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WINDOW_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WINDOW_HEIGHT - 20))
             pygame.display.flip()

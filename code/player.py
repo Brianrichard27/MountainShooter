@@ -11,7 +11,7 @@ from code.entity import Entity
 
 
 class Player(Entity):
-    def __init__(self, name: str, position: tuple ):
+    def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
         self.shoot_delay = ENTITY_SHOT_DELAY[self.name]
 
@@ -33,4 +33,7 @@ class Player(Entity):
             pressed_key = pygame.key.get_pressed()
             if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
                 return PlayerShot(f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
-        return None
+            else:
+                return None
+        else:
+            return None
